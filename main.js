@@ -2,6 +2,67 @@
   'use strict';
 
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var body = document.body;
+
+  /* ---- Pantalla de carga ---- */
+  var loader = document.getElementById('loader');
+  var glitchStart = null;
+  function finishLoading() {
+    if (!loader || loader.classList.contains('done')) return;
+    loader.classList.add('done');
+    body.classList.remove('is-loading');
+    body.classList.add('loaded');
+    if (glitchStart) setTimeout(glitchStart, 600);
+    setTimeout(function () { if (loader.parentNode) loader.parentNode.removeChild(loader); }, 900);
+  }
+  (function runLoader() {
+    if (!loader) { body.classList.remove('is-loading'); body.classList.add('loaded'); return; }
+    var seen = false;
+    try { seen = sessionStorage.getItem('fc-loaded') === '1'; sessionStorage.setItem('fc-loaded', '1'); } catch (e) {}
+    if (reduceMotion || seen) { finishLoading(); return; }
+    var fill = document.getElementById('ldFill');
+    var pct = document.getElementById('ldPct');
+    var stepEl = document.getElementById('ldStep');
+    var steps = ['Conectando con el servidor', 'Cargando proyectos', 'Compilando evidencias', 'Desbloqueando logros', 'Listo para jugar'];
+    var pageReady = document.readyState === 'complete';
+    window.addEventListener('load', function () { pageReady = true; });
+    var p = 0, minTime = 1700, t0 = performance.now();
+    (function tick() {
+      var elapsed = performance.now() - t0;
+      var cap = pageReady ? 100 : 88;
+      var lin = Math.min(1, elapsed / minTime);
+      p = Math.max(p, Math.min(cap, (1 - Math.pow(1 - lin, 2)) * 100));
+      var v = Math.round(p);
+      fill.style.width = v + '%';
+      pct.textContent = v + '%';
+      stepEl.textContent = steps[Math.min(steps.length - 1, Math.floor(v / 21))];
+      if (v >= 100) { setTimeout(finishLoading, 250); return; }
+      if (elapsed > 4500) { finishLoading(); return; }
+      setTimeout(tick, 30);
+    })();
+  })();
+
+  /* ---- Índices para animaciones escalonadas ---- */
+  document.querySelectorAll('.stagger').forEach(function (g) {
+    Array.prototype.forEach.call(g.children, function (c, i) { c.style.setProperty('--i', i); });
+  });
+  document.querySelectorAll('.loot').forEach(function (l) {
+    Array.prototype.forEach.call(l.children, function (c, i) { c.style.setProperty('--i', i); });
+  });
+
+  /* ---- Barra de progreso y parallax del lobby ---- */
+  var bar = document.getElementById('scrollProgress');
+  var lobbyBg = document.querySelector('.lobby-bg');
+  var ticking = false;
+  function onScroll() {
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var y = window.scrollY;
+    if (bar) bar.style.transform = 'scaleX(' + (max > 0 ? y / max : 0) + ')';
+    if (lobbyBg && !reduceMotion && y < window.innerHeight * 1.2) lobbyBg.style.transform = 'translateY(' + (y * 0.35) + 'px) scale(1.08)';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  onScroll();
 
   /* ---- Menú móvil ---- */
   var menuBtn = document.getElementById('menuBtn');
@@ -42,13 +103,16 @@
     }
     requestAnimationFrame(step);
   }
-  document.querySelectorAll('[data-count]').forEach(countUp);
+  function startCounters() { document.querySelectorAll('[data-count]').forEach(countUp); }
+  if (body.classList.contains('loaded')) startCounters();
+  else { var prev = glitchStart; glitchStart = function () { startCounters(); if (prev) prev(); }; }
 
   /* ---- Glitch del título ---- */
   var glitch = document.querySelector('.glitch');
   if (glitch && !reduceMotion) {
     var fire = function () { glitch.classList.remove('run'); void glitch.offsetWidth; glitch.classList.add('run'); };
-    setTimeout(fire, 500);
+    if (body.classList.contains('loaded')) setTimeout(fire, 500);
+    else { var prevStart = glitchStart; glitchStart = function () { if (prevStart) prevStart(); fire(); }; }
     glitch.addEventListener('mouseenter', fire);
   }
 

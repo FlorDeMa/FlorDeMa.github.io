@@ -16,7 +16,19 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="is-loading">
+<div class="loader" id="loader" role="status" aria-live="polite">
+  <div class="ld-grid" aria-hidden="true"></div>
+  <div class="ld-core">
+    <div class="ld-ring" aria-hidden="true"><span class="ld-mark">FC</span></div>
+    <p class="ld-title glitch-ld" data-text="FLOR CONTRERAS">FLOR CONTRERAS</p>
+    <p class="ld-sub">Cargando portafolio<span class="ld-dots" aria-hidden="true"></span></p>
+    <div class="ld-bar" aria-hidden="true"><span id="ldFill"></span></div>
+    <p class="ld-meta"><span id="ldStep">Conectando con el servidor</span><b id="ldPct">0%</b></p>
+  </div>
+  <p class="ld-tip"><span>Consejo:</span> haz clic en una tarjeta de proyecto para ver el producto terminado.</p>
+</div>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 <a class="skip" href="#proyectos">Saltar al contenido</a>
 
 <!-- ================= BARRA SUPERIOR (cliente) ================= -->
@@ -113,7 +125,7 @@
     <p class="sec-sub">Productos terminados, con demo o video. Haz clic en una tarjeta para ver el detalle.</p>
   </header>
 
-  <div class="hero-grid reveal">
+  <div class="hero-grid reveal stagger">
     <a class="hero-card" href="#ichu" style="--accent:var(--magenta)">
       <img src="assets/img/ichu-dashboard.png" width="1366" height="768" loading="lazy" alt="">
       <span class="hc-attr">IoT</span>
@@ -312,7 +324,7 @@
     <p class="sec-tab cyan">Side quests</p>
     <h2>También hice</h2>
   </header>
-  <div class="quest-grid reveal">
+  <div class="quest-grid reveal stagger">
     <a class="quest" href="https://youtu.be/QEWFqQgTEz4" target="_blank" rel="noopener"><span class="q-tag">Python · 2025</span><b>WomenSearch</b><span>Proyecto de Complejidad Algorítmica en Python. Mira la demo en video.</span></a>
     <a class="quest" href="https://github.com/Stack0verflowers/java-fundamentals-course-Stack0verFlowers" target="_blank" rel="noopener"><span class="q-tag">Java · 2025</span><b>Curso de Java para escolares</b><span>Curso de una hora de Java y POO para chicos de 12 a 17 años. Soy la principal contribuidora.</span></a>
     <a class="quest" href="https://github.com/elysium-mobile/docs" target="_blank" rel="noopener"><span class="q-tag">Startup · 2026</span><b>Elysium</b><span>Coautora del informe oficial del producto, con 48 commits.</span></a>
@@ -327,7 +339,7 @@
     <h2>Mis demos en video</h2>
     <p class="sec-sub">Presentaciones y demos de mis proyectos en mi canal de YouTube.</p>
   </header>
-  <div class="watch-grid reveal">
+  <div class="watch-grid reveal stagger">
     <a class="watch" href="https://youtu.be/HVO8DFwPLxg" target="_blank" rel="noopener"><span class="w-thumb" style="background-image:url(assets/img/arcanum-levelup.jpg)"></span><b>Arcanum · demo</b><small>jun 2024</small></a>
     <a class="watch" href="https://youtu.be/EHNGAbgZvTU" target="_blank" rel="noopener"><span class="w-thumb" style="background-image:url(assets/img/arcanum-gameover.jpg)"></span><b>Arcanum · entrega final</b><small>jun 2024</small></a>
     <a class="watch" href="https://youtu.be/kvS5QM_M_uU" target="_blank" rel="noopener"><span class="w-thumb alt">ARCANUM</span><b>Arcanum · trabajo parcial</b><small>may 2024</small></a>
@@ -345,7 +357,7 @@
     <h2>Logros desbloqueados</h2>
     <p class="sec-sub">Haz clic en un certificado para verlo completo, o verifícalo en la plataforma que lo emitió.</p>
   </header>
-  <div class="ach-grid reveal">
+  <div class="ach-grid reveal stagger">
     <div class="ach legendary"><button type="button" data-full="assets/certs/umich-python-for-everybody.jpg" data-caption="Python for Everybody (especialización, 5 cursos) · University of Michigan"><img src="assets/certs/umich-python-for-everybody.jpg" loading="lazy" alt="Certificado Python for Everybody"></button><b>Python for Everybody</b><small>University of Michigan · 5 cursos · 2024</small><a href="https://coursera.org/verify/specialization/7WH5CR8D9MUY" target="_blank" rel="noopener">Verificar ↗</a></div>
     <div class="ach legendary"><button type="button" data-full="assets/certs/scrum-fundamentals.jpg" data-caption="Scrum Fundamentals Certified · SCRUMstudy · ID 1026813"><img src="assets/certs/scrum-fundamentals.jpg" loading="lazy" alt="Certificado Scrum Fundamentals"></button><b>Scrum Fundamentals Certified</b><small>SCRUMstudy · ID 1026813 · 2024</small></div>
     <div class="ach legendary"><button type="button" data-full="assets/certs/efset-ingles.jpg" data-caption="EF SET English Certificate · 63/100 (C1)"><img src="assets/certs/efset-ingles.jpg" loading="lazy" alt="Certificado EF SET"></button><b>Inglés EF SET · C1</b><small>63/100 · 2026</small><a href="https://cert.efset.org/en/7LFMw5" target="_blank" rel="noopener">Verificar ↗</a></div>
@@ -359,7 +371,7 @@
     <div class="ach"><button type="button" data-full="assets/certs/meta-statistics-marketing.jpg" data-caption="Statistics for Marketing · Meta"><img src="assets/certs/meta-statistics-marketing.jpg" loading="lazy" alt="Certificado Statistics for Marketing"></button><b>Statistics for Marketing</b><small>Meta · 2024</small><a href="https://coursera.org/verify/ZFR5TWDAEHM2" target="_blank" rel="noopener">Verificar ↗</a></div>
     <div class="ach"><button type="button" data-full="assets/certs/meta-marketing-analytics-foundation.jpg" data-caption="Marketing Analytics Foundation · Meta"><img src="assets/certs/meta-marketing-analytics-foundation.jpg" loading="lazy" alt="Certificado Marketing Analytics Foundation"></button><b>Marketing Analytics Foundation</b><small>Meta · 2024</small><a href="https://coursera.org/verify/5YKCBXTA9GDB" target="_blank" rel="noopener">Verificar ↗</a></div>
   </div>
-  <div class="badge-row reveal">
+  <div class="badge-row reveal stagger">
     <a href="https://www.skills.google/public_profiles/b4f1726a-c893-4aea-b678-1b6a1620d27a/badges/25096795" target="_blank" rel="noopener"><span>Google Cloud</span>Prompt Design in Vertex AI ↗</a>
     <a href="https://www.skills.google/public_profiles/b4f1726a-c893-4aea-b678-1b6a1620d27a/badges/24563136" target="_blank" rel="noopener"><span>Google Cloud</span>IA responsable: aplica los principios ↗</a>
     <a href="https://www.skills.google/public_profiles/b4f1726a-c893-4aea-b678-1b6a1620d27a/badges/24508256" target="_blank" rel="noopener"><span>Google Cloud</span>Introducción a la IA responsable ↗</a>
@@ -370,7 +382,7 @@
 
 <!-- ================= PERFIL ================= -->
 <section class="section compact" id="perfil">
-  <div class="profile-grid reveal">
+  <div class="profile-grid reveal stagger">
     <div class="panel pad">
       <p class="band">Formación</p>
       <ul class="plain">
