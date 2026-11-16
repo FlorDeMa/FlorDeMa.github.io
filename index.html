@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flor Contreras · Portafolio de proyectos</title>
+  <meta name="description" content="Portafolio de Flor de María Contreras León, estudiante de Ingeniería de Software (UPC): plataformas IoT, microservicios, aplicaciones web y videojuegos.">
+  <meta property="og:title" content="Flor Contreras · Portafolio de proyectos">
+  <meta property="og:description" content="IoT, microservicios, aplicaciones web y videojuegos. Proyectos terminados con demos en vivo.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/ichu-sitio-vivo.jpg">
+  <meta name="theme-color" content="#07060d">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M6 4h52l-6 56H12z' fill='%23ff2e88'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='26' font-weight='900' text-anchor='middle' fill='%2307060d'%3EFC%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#proyectos">Saltar al contenido</a>
+
+<!-- ================= BARRA SUPERIOR (cliente) ================= -->
+<header class="topbar" id="top">
+  <a class="brand" href="#inicio" aria-label="Inicio">
+    <span class="brand-mark">FC</span>
+    <span class="brand-fps">online</span>
+  </a>
+  <nav class="nav" id="nav" aria-label="Secciones">
+    <a href="#proyectos">Proyectos</a>
+    <a href="#arcanum">Juegos</a>
+    <a href="#videos">Videos</a>
+    <a href="#logros">Logros</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+  <a class="play-tab" href="assets/CV-Flor-Contreras-Leon.pdf" download>Descargar CV</a>
+  <div class="top-right">
+    <span class="currency" title="Pull requests fusionados como autora"><b data-count="134">134</b>+<small>PRs</small></span>
+    <a class="top-user" href="https://github.com/FlorDeMa" target="_blank" rel="noopener"><span class="mini-mark">FC</span><span>FlorDeMa<small>github</small></span></a>
+  </div>
+  <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav">Menú</button>
+</header>
+
+<main>
+
+<!-- ================= LOBBY / HERO ================= -->
+<section class="lobby" id="inicio">
+  <div class="lobby-bg" aria-hidden="true"></div>
+  <canvas class="embers" id="embers" aria-hidden="true"></canvas>
+
+  <div class="lobby-grid">
+    <!-- Panel de jugadora -->
+    <aside class="panel player" aria-label="Perfil">
+      <div class="player-head">
+        <span class="avatar">FC</span>
+        <div>
+          <h1 class="player-name">Flor Contreras</h1>
+          <p class="player-status"><span class="dot"></span>Disponible para prácticas</p>
+        </div>
+      </div>
+      <p class="band">Misión actual</p>
+      <div class="band-body">
+        <p class="mission">Prácticas pre profesionales en desarrollo de software</p>
+        <p class="mission-sub">Ingeniería de Software · 7.º ciclo · UPC</p>
+      </div>
+      <p class="band">Estadísticas</p>
+      <div class="band-body stats">
+        <div><b data-count="134">134</b><span>PRs fusionados</span></div>
+        <div><b data-count="9">9</b><span>proyectos</span></div>
+        <div><b data-count="6">6</b><span>releases</span></div>
+        <div><b data-count="5">5</b><span>lenguajes</span></div>
+      </div>
+      <p class="band">Stack principal</p>
+      <div class="band-body slots">
+        <span>Java</span><span>C#</span><span>TS</span><span>Python</span><span>C++</span>
+      </div>
+    </aside>
+
+    <!-- Centro: último proyecto -->
+    <div class="last-match">
+      <p class="lm-kicker">Último proyecto</p>
+      <h2 class="lm-title glitch" data-text="ICHU">ICHU</h2>
+      <p class="lm-meta"><span class="pill win">En producción</span><span class="lm-kda">IoT · Full stack · 2026</span></p>
+      <p class="lm-desc">Collar inteligente que monitorea la salud del ganado y avisa al ganadero y al veterinario antes de que sea tarde.</p>
+      <div class="lm-actions">
+        <a class="btn-ghost" href="#ichu">Ver proyecto</a>
+        <a class="btn-ghost cyan" href="https://five-smart-farm-creators.github.io/ichu-website/" target="_blank" rel="noopener">Demo en vivo ↗</a>
+      </div>
+    </div>
+
+    <!-- Derecha: tarjetas destacadas -->
+    <div class="featured">
+      <a class="feat-card" href="#arcanum">
+        <span class="feat-banner">Nuevo juego</span>
+        <img src="assets/img/arcanum-levelup.jpg" width="1280" height="720" alt="Pantalla LEVEL UP del videojuego Arcanum">
+        <span class="feat-foot">Arcanum · ver tráiler</span>
+      </a>
+      <a class="feat-card" href="#rinde">
+        <span class="feat-banner cyan">Microservicios</span>
+        <img src="assets/img/rinde-landing-hero.jpg" width="1440" height="700" alt="Landing page de RINDE con mockup de la app móvil">
+        <span class="feat-foot">RINDE · ver proyecto</span>
+      </a>
+    </div>
+  </div>
+
+  <p class="chat-line"><span>To(Reclutadores):</span> desarrollo backend, frontend e IoT en equipo, con GitFlow, pull requests y CI en cada cambio.</p>
+</section>
+
+<!-- ================= SELECCIÓN DE PROYECTOS ================= -->
+<section class="section" id="proyectos">
+  <header class="sec-head reveal">
+    <p class="sec-tab">Proyectos</p>
+    <h2>Elige un proyecto</h2>
+    <p class="sec-sub">Productos terminados, con demo o video. Haz clic en una tarjeta para ver el detalle.</p>
+  </header>
+
+  <div class="hero-grid reveal">
+    <a class="hero-card" href="#ichu" style="--accent:var(--magenta)">
+      <img src="assets/img/ichu-dashboard.png" width="1366" height="768" loading="lazy" alt="">
+      <span class="hc-attr">IoT</span>
+      <span class="hc-name">ICHU</span><span class="hc-role">Full stack · .NET · Angular</span>
+    </a>
+    <a class="hero-card" href="#rinde" style="--accent:var(--cyan)">
+      <img src="assets/img/rinde-landing-app.jpg" width="1200" height="720" loading="lazy" alt="">
+      <span class="hc-attr">Backend</span>
+      <span class="hc-name">RINDE</span><span class="hc-role">Spring Boot · microservicios</span>
+    </a>
+    <a class="hero-card" href="#arcanum" style="--accent:var(--acid)">
+      <img src="assets/img/arcanum-gameover.jpg" width="953" height="576" loading="lazy" alt="">
+      <span class="hc-attr">Juego</span>
+      <span class="hc-name">Arcanum</span><span class="hc-role">Videojuego en C++</span>
+    </a>
+    <a class="hero-card" href="#primefix" style="--accent:var(--violet)">
+      <img src="assets/img/primefix-autorepair.png" width="1410" height="775" loading="lazy" alt="">
+      <span class="hc-attr">Frontend</span>
+      <span class="hc-name">Prime Fix</span><span class="hc-role">Vue 3 · Pinia</span>
+    </a>
+    <a class="hero-card" href="#plantae" style="--accent:#3ddc84">
+      <img src="assets/img/ecotech-producto.jpg" width="1062" height="520" loading="lazy" alt="">
+      <span class="hc-attr">Web</span>
+      <span class="hc-name">PlantaE</span><span class="hc-role">Spring Boot · Angular</span>
+    </a>
+    <a class="hero-card" href="#pasajes" style="--accent:#5b8cff">
+      <img src="assets/img/pasajes-consola.jpg" width="716" height="396" loading="lazy" alt="">
+      <span class="hc-attr">Algoritmos</span>
+      <span class="hc-name">BusTicket</span><span class="hc-role">C++ · estructuras de datos</span>
+    </a>
+  </div>
+</section>
+
+<!-- ================= DETALLE: ICHU ================= -->
+<section class="match reveal" id="ichu" style="--accent:var(--magenta)">
+  <div class="match-media">
+    <button class="main-shot" type="button" data-full="assets/img/ichu-sitio-vivo.jpg" data-caption="Sitio web de ICHU en vivo">
+      <img src="assets/img/ichu-sitio-vivo.jpg" width="1440" height="900" loading="lazy" alt="Sitio web de ICHU con ganado en el campo y el lema del producto">
+    </button>
+    <div class="thumbs">
+      <button type="button" data-full="assets/img/ichu-dashboard.png" data-caption="Web app: dashboard del hato"><img src="assets/img/ichu-dashboard.png" loading="lazy" alt="Dashboard del hato en la web app"></button>
+      <button type="button" data-full="assets/img/ichu-monitoreo.png" data-caption="Web app: monitoreo con alertas y geocercas"><img src="assets/img/ichu-monitoreo.png" loading="lazy" alt="Monitoreo del hato"></button>
+      <button type="button" data-full="assets/img/ichu-alerta-metano.png" data-caption="Alerta de metano en tiempo real"><img src="assets/img/ichu-alerta-metano.png" loading="lazy" alt="Alerta de metano"></button>
+      <button type="button" data-full="assets/img/ichu-wokwi-panel.png" data-caption="Panel de alertas ESP32 funcionando en Wokwi"><img src="assets/img/ichu-wokwi-panel.png" loading="lazy" alt="Panel ESP32 en Wokwi"></button>
+      <button type="button" data-full="assets/img/ichu-api-swagger.png" data-caption="API desplegada en Render"><img src="assets/img/ichu-api-swagger.png" loading="lazy" alt="API en Swagger"></button>
+    </div>
+  </div>
+  <div class="match-info">
+    <p class="match-banner">01 · IoT y full stack</p>
+    <h3>ICHU</h3>
+    <p class="match-pitch">Monitoreo ganadero con collar inteligente. El collar mide frecuencia cardiaca y metano, y la plataforma alerta al ganadero y al veterinario.</p>
+    <ul class="loot">
+      <li>API en <b>ASP.NET Core</b> con login de Firebase, pagos con <b>Stripe</b> y alertas de salud.</li>
+      <li>Web app en <b>Angular</b>: dashboards, geocercas y reportes en Excel y PDF.</li>
+      <li>Edge service en <b>Python</b> y firmware <b>ESP32</b> del collar.</li>
+      <li>Sitio web bilingüe con tema claro y oscuro.</li>
+    </ul>
+    <div class="chips"><span>C# / .NET</span><span>Angular</span><span>Python</span><span>ESP32</span><span>Firebase</span><span>Stripe</span><span>Docker</span></div>
+    <div class="actions">
+      <a class="btn-solid" href="https://five-smart-farm-creators.github.io/ichu-website/" target="_blank" rel="noopener">Sitio en vivo</a>
+      <a class="btn-ghost" href="https://ichu-smartfarm.web.app" target="_blank" rel="noopener">Web app</a>
+      <a class="btn-ghost" href="https://github.com/pulls?q=is%3Apr+author%3AFlorDeMa+org%3Afive-smart-farm-creators+is%3Amerged" target="_blank" rel="noopener">122 PRs míos</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DETALLE: RINDE ================= -->
+<section class="match reverse reveal" id="rinde" style="--accent:var(--cyan)">
+  <div class="match-media">
+    <button class="main-shot" type="button" data-full="assets/img/rinde-landing-hero.jpg" data-caption="Landing page de RINDE">
+      <img src="assets/img/rinde-landing-hero.jpg" width="1440" height="700" loading="lazy" alt="Landing de RINDE: cada viaje de su flota, con sus gastos y su liquidación en orden">
+    </button>
+    <div class="thumbs">
+      <button type="button" data-full="assets/img/rinde-landing-operaciones.jpg" data-caption="Funcionalidades: viajes, gastos y liquidación"><img src="assets/img/rinde-landing-operaciones.jpg" loading="lazy" alt="Sección de funcionalidades"></button>
+      <button type="button" data-full="assets/img/rinde-landing-app.jpg" data-caption="App Android para el conductor"><img src="assets/img/rinde-landing-app.jpg" loading="lazy" alt="Sección de la app Android"></button>
+    </div>
+  </div>
+  <div class="match-info">
+    <p class="match-banner">02 · Backend y microservicios</p>
+    <h3>RINDE</h3>
+    <p class="match-pitch">Plataforma para empresas de carga: cada viaje con sus gastos y su liquidación en orden, desde la oficina o desde el celular del conductor.</p>
+    <ul class="loot">
+      <li>Diseñé el servicio de <b>suscripciones y pagos</b> en Spring Boot: planes, checkout y webhook.</li>
+      <li>Lo separé como <b>microservicio</b> conectado por RabbitMQ y el API gateway.</li>
+      <li>Construí la <b>landing page</b> en Angular con formulario de demo.</li>
+    </ul>
+    <div class="chips"><span>Java 21</span><span>Spring Boot</span><span>RabbitMQ</span><span>Flyway</span><span>Cucumber</span><span>Angular</span></div>
+    <div class="actions">
+      <a class="btn-solid cyan" href="https://github.com/nexus-upc/rinde-services/pull/5" target="_blank" rel="noopener">PR del microservicio</a>
+      <a class="btn-ghost" href="https://github.com/nexus-upc/rinde-apps/pull/9" target="_blank" rel="noopener">PR de la landing</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DETALLE: ARCANUM ================= -->
+<section class="match reveal" id="arcanum" style="--accent:var(--acid)">
+  <div class="match-media">
+    <div class="yt" data-id="HVO8DFwPLxg" data-title="Arcanum DEMO | Algoritmos UPC">
+      <img src="assets/img/arcanum-levelup.jpg" width="1280" height="720" loading="lazy" alt="Arcanum: pantalla LEVEL UP">
+      <button type="button" class="yt-play" aria-label="Reproducir el tráiler de Arcanum"><span></span></button>
+    </div>
+    <div class="thumbs">
+      <button type="button" data-full="assets/img/arcanum-gameover.jpg" data-caption="Arcanum: pantalla de Game Over"><img src="assets/img/arcanum-gameover.jpg" loading="lazy" alt="Pantalla Game Over"></button>
+    </div>
+  </div>
+  <div class="match-info">
+    <p class="match-banner">03 · Videojuego</p>
+    <h3>Arcanum</h3>
+    <p class="match-pitch">Fangame en C++ creado para el curso de Algoritmos (2024-1). Lo presentamos en el trabajo parcial y en el final, y aquí está la demo jugable.</p>
+    <ul class="loot">
+      <li>Juego de escritorio en <b>C++</b> con <b>Windows Forms</b>.</li>
+      <li>Pantalla de <b>Game Over</b> con texto animado letra por letra, sonido y botón propio.</li>
+      <li>Pantallas de transición como <b>Level Up</b>.</li>
+    </ul>
+    <div class="chips"><span>C++ / CLI</span><span>Windows Forms</span><span>.NET Framework</span><span>Visual Studio</span></div>
+    <div class="actions">
+      <a class="btn-solid acid" href="https://youtu.be/HVO8DFwPLxg" target="_blank" rel="noopener">Ver demo</a>
+      <a class="btn-ghost" href="https://youtu.be/EHNGAbgZvTU" target="_blank" rel="noopener">Entrega final</a>
+      <a class="btn-ghost" href="https://github.com/FlorDeMa/game-over-screen-cpp" target="_blank" rel="noopener">Código Game Over</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DETALLE: PRIME FIX ================= -->
+<section class="match reverse reveal" id="primefix" style="--accent:var(--violet)">
+  <div class="match-media">
+    <button class="main-shot" type="button" data-full="assets/img/primefix-autorepair.png" data-caption="Prime Fix: panel del taller (datos de ejemplo)">
+      <img src="assets/img/primefix-autorepair.png" width="1410" height="775" loading="lazy" alt="Panel de Prime Fix con visitas programadas y calificaciones">
+    </button>
+  </div>
+  <div class="match-info">
+    <p class="match-banner">04 · Frontend</p>
+    <h3>Prime Fix</h3>
+    <p class="match-pitch">Aplicación web para talleres de reparación automotriz: técnicos, visitas y clientes en un solo lugar.</p>
+    <ul class="loot">
+      <li>Módulo completo de <b>registro y gestión de técnicos</b> (CRUD).</li>
+      <li>Estado con <b>Pinia</b>, rutas con Vue Router y componentes PrimeVue.</li>
+    </ul>
+    <div class="chips"><span>Vue 3</span><span>Pinia</span><span>PrimeVue</span><span>Vite</span></div>
+    <div class="actions">
+      <a class="btn-ghost" href="https://github.com/prime-fix-app-web/frontend" target="_blank" rel="noopener">Repositorio</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DETALLE: PLANTAE ================= -->
+<section class="match reveal" id="plantae" style="--accent:#3ddc84">
+  <div class="match-media">
+    <div class="yt" data-id="n8PixEmEuhs" data-title="EcoTech · About the Product">
+      <img src="assets/img/ecotech-producto.jpg" width="1062" height="520" loading="lazy" alt="Pantalla de inicio de sesión de PlantaE">
+      <button type="button" class="yt-play" aria-label="Reproducir el video del producto PlantaE"><span></span></button>
+    </div>
+  </div>
+  <div class="match-info">
+    <p class="match-banner">05 · Web e IoT</p>
+    <h3>PlantaE</h3>
+    <p class="match-pitch">Plataforma del equipo EcoTech para cuidar plantas con sensores: lecturas, alertas y reportes en PDF.</p>
+    <ul class="loot">
+      <li>Backend en <b>Spring Boot</b> con JWT y frontend en <b>Angular</b>.</li>
+      <li>Participé en el equipo y publiqué el código en la organización.</li>
+    </ul>
+    <div class="chips"><span>Spring Boot</span><span>Angular</span><span>JWT</span></div>
+    <div class="actions">
+      <a class="btn-ghost" href="https://youtu.be/n8PixEmEuhs" target="_blank" rel="noopener">Video del producto</a>
+      <a class="btn-ghost" href="https://github.com/PlantaE-open-sorce" target="_blank" rel="noopener">Organización</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DETALLE: PASAJES ================= -->
+<section class="match reverse reveal" id="pasajes" style="--accent:#5b8cff">
+  <div class="match-media">
+    <div class="yt" data-id="nhENaZovEtc" data-title="Algoritmos y estructuras 2024 · Trabajo parcial">
+      <img src="assets/img/pasajes-consola.jpg" width="716" height="396" loading="lazy" alt="Menú de consola del sistema de pasajes">
+      <button type="button" class="yt-play" aria-label="Reproducir la demo del sistema de pasajes"><span></span></button>
+    </div>
+  </div>
+  <div class="match-info">
+    <p class="match-banner">06 · Algoritmos</p>
+    <h3>BusTicket</h3>
+    <p class="match-pitch">Sistema de venta de pasajes de bus en C++ con estructuras de datos hechas desde cero (2024).</p>
+    <ul class="loot">
+      <li><b>Dijkstra</b> para la ruta más corta entre destinos.</li>
+      <li>Árbol binario de búsqueda, tabla hash y heap.</li>
+    </ul>
+    <div class="chips"><span>C++</span><span>Grafos</span><span>Árboles</span><span>Hashing</span></div>
+    <div class="actions">
+      <a class="btn-ghost" href="https://github.com/FlorDeMa/venta-pasajes-bus-cpp" target="_blank" rel="noopener">Repositorio</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MÁS ================= -->
+<section class="section" id="mas">
+  <header class="sec-head reveal">
+    <p class="sec-tab cyan">Side quests</p>
+    <h2>También hice</h2>
+  </header>
+  <div class="quest-grid reveal">
+    <a class="quest" href="https://youtu.be/QEWFqQgTEz4" target="_blank" rel="noopener"><span class="q-tag">Python · 2025</span><b>WomenSearch</b><span>Proyecto de Complejidad Algorítmica en Python. Mira la demo en video.</span></a>
+    <a class="quest" href="https://github.com/Stack0verflowers/java-fundamentals-course-Stack0verFlowers" target="_blank" rel="noopener"><span class="q-tag">Java · 2025</span><b>Curso de Java para escolares</b><span>Curso de una hora de Java y POO para chicos de 12 a 17 años. Soy la principal contribuidora.</span></a>
+    <a class="quest" href="https://github.com/elysium-mobile/docs" target="_blank" rel="noopener"><span class="q-tag">Startup · 2026</span><b>Elysium</b><span>Coautora del informe oficial del producto, con 48 commits.</span></a>
+    <div class="quest"><span class="q-tag">Hackathon</span><b>Talent Fest · Laboratoria</b><span>Página web para la empresa Efitec, trabajando en squad.</span></div>
+  </div>
+</section>
+
+<!-- ================= VIDEOS ================= -->
+<section class="section" id="videos">
+  <header class="sec-head reveal">
+    <p class="sec-tab">Watch</p>
+    <h2>Mis demos en video</h2>
+    <p class="sec-sub">Presentaciones y demos de mis proyectos en mi canal de YouTube.</p>
+  </header>
+  <div class="watch-grid reveal">
+    <a class="watch" href="https://youtu.be/HVO8DFwPLxg" target="_blank" rel="noopener"><span class="w-thumb" style="background-image:url(assets/img/arcanum-levelup.jpg)"></span><b>Arcanum · demo</b><small>jun 2024</small></a>
+    <a class="watch" href="https://youtu.be/EHNGAbgZvTU" target="_blank" rel="noopener"><span class="w-thumb" style="background-image:url(assets/img/arcanum-gameover.jpg)"></span><b>Arcanum · entrega final</b><small>jun 2024</small></a>
+    <a class="watch" href="https://youtu.be/kvS5QM_M_uU" target="_blank" rel="noopener"><span class="w-thumb alt">ARCANUM</span><b>Arcanum · trabajo parcial</b><small>may 2024</small></a>
+    <a class="watch" href="https://youtu.be/nhENaZovEtc" target="_blank" rel="noopener"><span class="w-thumb" style="background-image:url(assets/img/pasajes-consola.jpg)"></span><b>BusTicket · trabajo parcial</b><small>sep 2024</small></a>
+    <a class="watch" href="https://youtu.be/QEWFqQgTEz4" target="_blank" rel="noopener"><span class="w-thumb alt cyan">PYTHON</span><b>WomenSearch</b><small>jul 2025</small></a>
+    <a class="watch" href="https://youtu.be/n8PixEmEuhs" target="_blank" rel="noopener"><span class="w-thumb" style="background-image:url(assets/img/ecotech-producto.jpg)"></span><b>PlantaE · el producto</b><small>dic 2025</small></a>
+  </div>
+  <p class="center"><a class="btn-ghost" href="https://youtube.com/@puppy5373" target="_blank" rel="noopener">Ver canal completo ↗</a></p>
+</section>
+
+<!-- ================= LOGROS ================= -->
+<section class="section" id="logros">
+  <header class="sec-head reveal">
+    <p class="sec-tab acid">Logros</p>
+    <h2>Logros desbloqueados</h2>
+    <p class="sec-sub">Haz clic en un certificado para verlo completo, o verifícalo en la plataforma que lo emitió.</p>
+  </header>
+  <div class="ach-grid reveal">
+    <div class="ach legendary"><button type="button" data-full="assets/certs/umich-python-for-everybody.jpg" data-caption="Python for Everybody (especialización, 5 cursos) · University of Michigan"><img src="assets/certs/umich-python-for-everybody.jpg" loading="lazy" alt="Certificado Python for Everybody"></button><b>Python for Everybody</b><small>University of Michigan · 5 cursos · 2024</small><a href="https://coursera.org/verify/specialization/7WH5CR8D9MUY" target="_blank" rel="noopener">Verificar ↗</a></div>
+    <div class="ach legendary"><button type="button" data-full="assets/certs/scrum-fundamentals.jpg" data-caption="Scrum Fundamentals Certified · SCRUMstudy · ID 1026813"><img src="assets/certs/scrum-fundamentals.jpg" loading="lazy" alt="Certificado Scrum Fundamentals"></button><b>Scrum Fundamentals Certified</b><small>SCRUMstudy · ID 1026813 · 2024</small></div>
+    <div class="ach legendary"><button type="button" data-full="assets/certs/efset-ingles.jpg" data-caption="EF SET English Certificate · 63/100 (C1)"><img src="assets/certs/efset-ingles.jpg" loading="lazy" alt="Certificado EF SET"></button><b>Inglés EF SET · C1</b><small>63/100 · 2026</small><a href="https://cert.efset.org/en/7LFMw5" target="_blank" rel="noopener">Verificar ↗</a></div>
+    <div class="ach"><button type="button" data-full="assets/certs/umich-programming-for-everybody.jpg" data-caption="Programming for Everybody · University of Michigan"><img src="assets/certs/umich-programming-for-everybody.jpg" loading="lazy" alt="Certificado Programming for Everybody"></button><b>Programming for Everybody</b><small>U. of Michigan · 2024</small><a href="https://coursera.org/verify/LA4AUENW5YJG" target="_blank" rel="noopener">Verificar ↗</a></div>
+    <div class="ach"><button type="button" data-full="assets/certs/umich-python-data-structures.jpg" data-caption="Python Data Structures · University of Michigan"><img src="assets/certs/umich-python-data-structures.jpg" loading="lazy" alt="Certificado Python Data Structures"></button><b>Python Data Structures</b><small>U. of Michigan · 2024</small><a href="https://coursera.org/verify/GJDERHAWT9F3" target="_blank" rel="noopener">Verificar ↗</a></div>
+    <div class="ach"><button type="button" data-full="assets/certs/umich-python-web-data.jpg" data-caption="Using Python to Access Web Data · University of Michigan"><img src="assets/certs/umich-python-web-data.jpg" loading="lazy" alt="Certificado Using Python to Access Web Data"></button><b>Python para datos web</b><small>U. of Michigan · 2024</small><a href="https://coursera.org/verify/8MDD32G56KKQ" target="_blank" rel="noopener">Verificar ↗</a></div>
+    <div class="ach"><button type="button" data-full="assets/certs/umich-using-databases.jpg" data-caption="Using Databases with Python · University of Michigan"><img src="assets/certs/umich-using-databases.jpg" loading="lazy" alt="Certificado Using Databases with Python"></button><b>Bases de datos con Python</b><small>U. of Michigan · 2024</small><a href="https://coursera.org/verify/6LCZ3MHQ465N" target="_blank" rel="noopener">Verificar ↗</a></div>
+    <div class="ach"><button type="button" data-full="assets/certs/meta-marketing-analytics.jpg" data-caption="Marketing Analytics with Meta"><img src="assets/certs/meta-marketing-analytics.jpg" loading="lazy" alt="Certificado Marketing Analytics with Meta"></button><b>Marketing Analytics</b><small>Meta · 2024</small><a href="https://coursera.org/verify/8Z9Q4ZAX9THF" target="_blank" rel="noopener">Verificar ↗</a></div>
+    <div class="ach"><button type="button" data-full="assets/certs/meta-data-analytics-methods.jpg" data-caption="Data Analytics Methods for Marketing · Meta"><img src="assets/certs/meta-data-analytics-methods.jpg" loading="lazy" alt="Certificado Data Analytics Methods for Marketing"></button><b>Data Analytics Methods</b><small>Meta · 2024</small><a href="https://coursera.org/verify/DU8FJZGJQPCH" target="_blank" rel="noopener">Verificar ↗</a></div>
+    <div class="ach"><button type="button" data-full="assets/certs/meta-intro-data-analytics.jpg" data-caption="Introduction to Data Analytics · Meta"><img src="assets/certs/meta-intro-data-analytics.jpg" loading="lazy" alt="Certificado Introduction to Data Analytics"></button><b>Intro to Data Analytics</b><small>Meta · 2024</small><a href="https://coursera.org/verify/REJRQ98NMPZ9" target="_blank" rel="noopener">Verificar ↗</a></div>
+    <div class="ach"><button type="button" data-full="assets/certs/meta-statistics-marketing.jpg" data-caption="Statistics for Marketing · Meta"><img src="assets/certs/meta-statistics-marketing.jpg" loading="lazy" alt="Certificado Statistics for Marketing"></button><b>Statistics for Marketing</b><small>Meta · 2024</small><a href="https://coursera.org/verify/ZFR5TWDAEHM2" target="_blank" rel="noopener">Verificar ↗</a></div>
+    <div class="ach"><button type="button" data-full="assets/certs/meta-marketing-analytics-foundation.jpg" data-caption="Marketing Analytics Foundation · Meta"><img src="assets/certs/meta-marketing-analytics-foundation.jpg" loading="lazy" alt="Certificado Marketing Analytics Foundation"></button><b>Marketing Analytics Foundation</b><small>Meta · 2024</small><a href="https://coursera.org/verify/5YKCBXTA9GDB" target="_blank" rel="noopener">Verificar ↗</a></div>
+  </div>
+  <div class="badge-row reveal">
+    <a href="https://www.skills.google/public_profiles/b4f1726a-c893-4aea-b678-1b6a1620d27a/badges/25096795" target="_blank" rel="noopener"><span>Google Cloud</span>Prompt Design in Vertex AI ↗</a>
+    <a href="https://www.skills.google/public_profiles/b4f1726a-c893-4aea-b678-1b6a1620d27a/badges/24563136" target="_blank" rel="noopener"><span>Google Cloud</span>IA responsable: aplica los principios ↗</a>
+    <a href="https://www.skills.google/public_profiles/b4f1726a-c893-4aea-b678-1b6a1620d27a/badges/24508256" target="_blank" rel="noopener"><span>Google Cloud</span>Introducción a la IA responsable ↗</a>
+    <a href="https://coursera.org/share/9237b477c606f9cc8fd16df6747de69f" target="_blank" rel="noopener"><span>Google · Coursera</span>IT Security ↗</a>
+    <a href="https://coursera.org/share/91ba730455dbc71277f1df3badc42152" target="_blank" rel="noopener"><span>Google · Coursera</span>Infraestructura de TI ↗</a>
+  </div>
+</section>
+
+<!-- ================= PERFIL ================= -->
+<section class="section compact" id="perfil">
+  <div class="profile-grid reveal">
+    <div class="panel pad">
+      <p class="band">Formación</p>
+      <ul class="plain">
+        <li><b>UPC</b> · Ingeniería de Software · 7.º ciclo</li>
+        <li><b>UNAC</b> · Física · 4 ciclos (base sólida en matemática)</li>
+        <li><b>CETPRO San Martín de Porres</b> · Diseño web y publicitario · 600 h</li>
+      </ul>
+    </div>
+    <div class="panel pad">
+      <p class="band">Inventario técnico</p>
+      <div class="chips">
+        <span>Java</span><span>Spring Boot</span><span>C#</span><span>ASP.NET Core</span><span>Python</span><span>Flask</span><span>C++</span><span>TypeScript</span><span>Angular</span><span>Vue 3</span><span>RabbitMQ</span><span>Docker</span><span>Firebase</span><span>Stripe</span><span>GitHub Actions</span><span>Cucumber</span><span>ESP32</span><span>Scrum</span><span>UX/UI</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACTO ================= -->
+<section class="section contact" id="contacto">
+  <div class="contact-card reveal">
+    <p class="sec-tab">Contacto</p>
+    <h2>¿Jugamos en el mismo equipo?</h2>
+    <p>Busco prácticas pre profesionales en desarrollo de software. Escríbeme y te respondo pronto.</p>
+    <div class="actions center">
+      <a class="btn-solid" href="mailto:flor.de.maria.contreras.leon@gmail.com">Escríbeme</a>
+      <a class="btn-ghost" href="https://www.linkedin.com/in/flor-de-maria-contreras-leon-345211297" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn-ghost" href="https://github.com/FlorDeMa" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn-ghost" href="assets/CV-Flor-Contreras-Leon.pdf" download>Descargar CV</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <span>© 2026 Flor de María Contreras León</span>
+  <span>Hecho con HTML, CSS y JavaScript</span>
+</footer>
+
+<dialog class="lightbox" id="lightbox" aria-label="Imagen ampliada">
+  <button type="button" class="lb-close" id="lbClose" aria-label="Cerrar">✕</button>
+  <img id="lbImg" alt="">
+  <p id="lbCap"></p>
+</dialog>
+
+<script src="main.js"></script>
+</body>
+</html>
