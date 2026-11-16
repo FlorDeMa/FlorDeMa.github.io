@@ -17,9 +17,6 @@
   }
   (function runLoader() {
     if (!loader) { body.classList.remove('is-loading'); body.classList.add('loaded'); return; }
-    var seen = false;
-    try { seen = sessionStorage.getItem('fc-loaded') === '1'; sessionStorage.setItem('fc-loaded', '1'); } catch (e) {}
-    if (reduceMotion || seen) { finishLoading(); return; }
     var fill = document.getElementById('ldFill');
     var pct = document.getElementById('ldPct');
     var stepEl = document.getElementById('ldStep');
@@ -150,6 +147,87 @@
       box.appendChild(iframe);
     });
   });
+
+  /* ---- Texto que se escribe solo ---- */
+  var typed = document.querySelector('.typed');
+  if (typed && !reduceMotion) {
+    var full = typed.getAttribute('data-text');
+    typed.textContent = '';
+    var startTyping = function () {
+      var k = 0;
+      (function type() {
+        typed.textContent = full.slice(0, ++k);
+        if (k < full.length) setTimeout(type, 28);
+      })();
+    };
+    var prevT = glitchStart;
+    if (body.classList.contains('loaded')) setTimeout(startTyping, 700);
+    else glitchStart = function () { if (prevT) prevT(); setTimeout(startTyping, 700); };
+  }
+
+  /* ---- Tarjetas que se inclinan en 3D ---- */
+  var finePointer = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (finePointer && !reduceMotion) {
+    document.querySelectorAll('.hero-card, .feat-card, .ach').forEach(function (card) {
+      card.classList.add('tilt');
+      var glare = document.createElement('span');
+      glare.className = 'glare';
+      card.appendChild(glare);
+      card.addEventListener('mousemove', function (e) {
+        var r = card.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+        card.style.transform = 'perspective(900px) rotateX(' + ((0.5 - y) * 10) + 'deg) rotateY(' + ((x - 0.5) * 12) + 'deg) translateY(-6px)';
+        card.style.setProperty('--gx', (x * 100) + '%');
+        card.style.setProperty('--gy', (y * 100) + '%');
+      });
+      card.addEventListener('mouseleave', function () { card.style.transform = ''; });
+    });
+
+    /* Luz que sigue al cursor */
+    var glow = document.getElementById('cursorGlow');
+    if (glow) {
+      var gx = 0, gy = 0, cx = 0, cy = 0, moving = false;
+      window.addEventListener('mousemove', function (e) {
+        gx = e.clientX; gy = e.clientY; glow.classList.add('on');
+        if (!moving) { moving = true; requestAnimationFrame(follow); }
+      });
+      document.addEventListener('mouseleave', function () { glow.classList.remove('on'); });
+      var follow = function () {
+        cx += (gx - cx) * 0.15; cy += (gy - cy) * 0.15;
+        glow.style.transform = 'translate(' + cx + 'px,' + cy + 'px)';
+        if (Math.abs(gx - cx) > 0.5 || Math.abs(gy - cy) > 0.5) requestAnimationFrame(follow); else moving = false;
+      };
+    }
+
+    /* Profundidad del lobby al mover el mouse */
+    var lobbyEl = document.querySelector('.lobby');
+    var layers = [document.querySelector('.player'), document.querySelector('.last-match'), document.querySelector('.featured')];
+    if (lobbyEl) {
+      lobbyEl.addEventListener('mousemove', function (e) {
+        var r = lobbyEl.getBoundingClientRect();
+        var dx = (e.clientX - r.left) / r.width - 0.5, dy = (e.clientY - r.top) / r.height - 0.5;
+        layers.forEach(function (l, i) {
+          if (l) l.style.translate = (dx * (i + 1) * -10) + 'px ' + (dy * (i + 1) * -8) + 'px';
+        });
+      });
+    }
+  }
+
+  /* ---- Menú: marca la sección visible ---- */
+  var navLinks = document.querySelectorAll('.nav a');
+  if ('IntersectionObserver' in window && navLinks.length) {
+    var map = {};
+    navLinks.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+    var navIo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting && map[en.target.id]) {
+          navLinks.forEach(function (a) { a.classList.remove('active'); });
+          map[en.target.id].classList.add('active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    Object.keys(map).forEach(function (id) { var s = document.getElementById(id); if (s) navIo.observe(s); });
+  }
 
   /* ---- Brasas de neón en el lobby ---- */
   var canvas = document.getElementById('embers');

@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body class="is-loading">
 <div class="loader" id="loader" role="status" aria-live="polite">
@@ -44,7 +44,7 @@
     <a href="#logros">Logros</a>
     <a href="#contacto">Contacto</a>
   </nav>
-  <a class="play-tab" href="assets/CV-Flor-Contreras-Leon.pdf" download>Descargar CV</a>
+  <a class="play-tab" href="assets/CV-Flor-Contreras-Leon.pdf?v=4" download>Descargar CV</a>
   <div class="top-right">
     <span class="currency" title="Pull requests fusionados como autora"><b data-count="134">134</b>+<small>PRs</small></span>
     <a class="top-user" href="https://github.com/FlorDeMa" target="_blank" rel="noopener"><span class="mini-mark">FC</span><span>FlorDeMa<small>github</small></span></a>
@@ -114,8 +114,15 @@
     </div>
   </div>
 
-  <p class="chat-line"><span>To(Reclutadores):</span> desarrollo backend, frontend e IoT en equipo, con GitFlow, pull requests y CI en cada cambio.</p>
+  <p class="chat-line"><span>To(Reclutadores):</span> <span class="typed" data-text="desarrollo backend, frontend e IoT en equipo, con GitFlow, pull requests y CI en cada cambio.">desarrollo backend, frontend e IoT en equipo, con GitFlow, pull requests y CI en cada cambio.</span><i class="caret" aria-hidden="true"></i></p>
 </section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Java</span><span>Spring Boot</span><span>C#</span><span>ASP.NET Core</span><span>Angular</span><span>Vue 3</span><span>Python</span><span>Flask</span><span>C++</span><span>RabbitMQ</span><span>Docker</span><span>Firebase</span><span>Stripe</span><span>ESP32</span><span>GitHub Actions</span><span>Scrum</span>
+    <span>Java</span><span>Spring Boot</span><span>C#</span><span>ASP.NET Core</span><span>Angular</span><span>Vue 3</span><span>Python</span><span>Flask</span><span>C++</span><span>RabbitMQ</span><span>Docker</span><span>Firebase</span><span>Stripe</span><span>ESP32</span><span>GitHub Actions</span><span>Scrum</span>
+  </div>
+</div>
 
 <!-- ================= SELECCIÓN DE PROYECTOS ================= -->
 <section class="section" id="proyectos">
@@ -410,7 +417,7 @@
       <a class="btn-solid" href="mailto:flor.de.maria.contreras.leon@gmail.com">Escríbeme</a>
       <a class="btn-ghost" href="https://www.linkedin.com/in/flor-de-maria-contreras-leon-345211297" target="_blank" rel="noopener">LinkedIn</a>
       <a class="btn-ghost" href="https://github.com/FlorDeMa" target="_blank" rel="noopener">GitHub</a>
-      <a class="btn-ghost" href="assets/CV-Flor-Contreras-Leon.pdf" download>Descargar CV</a>
+      <a class="btn-ghost" href="assets/CV-Flor-Contreras-Leon.pdf?v=4" download>Descargar CV</a>
     </div>
   </div>
 </section>
@@ -422,12 +429,13 @@
   <span>Hecho con HTML, CSS y JavaScript</span>
 </footer>
 
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 <dialog class="lightbox" id="lightbox" aria-label="Imagen ampliada">
   <button type="button" class="lb-close" id="lbClose" aria-label="Cerrar">✕</button>
   <img id="lbImg" alt="">
   <p id="lbCap"></p>
 </dialog>
 
-<script src="main.js"></script>
+<script src="main.js?v=4"></script>
 </body>
 </html>
